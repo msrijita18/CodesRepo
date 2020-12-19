@@ -1,0 +1,56 @@
+11.1 Write a program that reads a text file and creates another file that is identical except 
+that every sequence of consecutive blank spaces is replaced by a single space. 
+ 
+ 
+Solution: 
+#include<iostream.h> 
+#include<fstream.h> 
+#include<stdio.h> 
+#include<string.h> 
+ 
+int main() 
+{ 
+           ofstream of;     // of is a object of  ofstream file. 
+           of.open("hasib.txt");    // open a text document file named “hasib” to write. 
+           char c; 
+           ifstream inf("santo.txt");      // open a text document file named “santo” to read. 
+           inf.get(c);                            // retrieve  a single character  from “santo” file. 
+ 
+           while(inf)      // is character is ‘/0’  ? if not  go inside loop 
+             { 
+ 
+                         if(c==' ')  // is character is a space? If yes  execute “if” statement. 
+                         { 
+                                 while(inf)   // is character is ‘/0’  ? if not  go inside loop 
+                                    { 
+                                            inf.get(c); // retrieve  a single character from “santo” file. 
+                                            if(c!=' ')           // is character is not a space? 
+                                            {                      // If yes  go outside the while loop. 
+                                                  break;        // this is just for skip  the space. 
+                                            } 
+                                     } 
+                                 of<<" ";         // write single space to “hasib”  text document file. 
+                                 of<<c;         // write  next charcter to “hasib”  text document file. 
+ 
+    } 
+                     else 
+                     of<<c;              // write  single character where no space exits. 
+                    inf.get(c);      // retrieve a single character from “santo” text document again. 
+          } 
+    return 0; 
+} 
+ 
+ 
+Note: Before you run this program you just create a ‘.txt’ document to a particular drive where 
+your compiler was installed. 
+ 
+ 
+11.2  A file contains a list of telephone numbers in the following form 
+John          23456 
+Ahmed       9876 
+……………       ………… 
+the names contain only one word and the names and telephone numbers are separated by white 
+spaces. Write program to read this file and output the list in two columns. The names should be 
+left justified and the numbers should be right justified. 
+ 
+ 
